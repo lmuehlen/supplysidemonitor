@@ -1,13 +1,33 @@
 Package: supplysidemonitor
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Create Supply Side Monitor
 Version: 0.1.0
-Author: Who wrote it
+Author: person("Leo", "Mühlenweg",, "leonard.muehlenweg@dezernatzukunft.org", role = c("aut", "cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: This package is a wrapper for the functions used to create the interactive Supply Side Monitor created by Dezernat Zukunft e.V.    It automatically loads data from destatis and macrobond (authentification needed!) and creates an interactive reactable monitoring prices, output volume, and limiting factors.    A detailed description of the method can be found somewhere.
+License: file LICENSE
 Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
 LazyData: true
 URL: https://github.com/lmuehlen/supplysidemonitor
 BugReports: https://github.com/lmuehlen/supplysidemonitor/issues
+RoxygenNote: 7.3.2
+Imports: 
+    devtools,
+    dplyr,
+    echarts4r,
+    htmltools,
+    htmlwidgets,
+    lubridate,
+    MacrobondAPI,
+    magrittr,
+    purrr,
+    reactable,
+    readxl,
+    restatis,
+    RJDemetra,
+    tidyr,
+    xts,
+    zoo
+Depends: 
+    R (>= 3.5)

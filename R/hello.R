@@ -1,18 +1,24 @@
-# Hello, world!
-#
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   https://r-pkgs.org
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Install Package:           'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+library(devtools)
+library(roxygen2)
+use_package("MacrobondAPI")
+use_package("RJDemetra")
+use_package("readxl")
+use_package("restatis")
+use_package("reactable")
+use_package("echarts4r")
+use_package("htmlwidgets")
+use_package("htmltools")
+use_package("dplyr")
+use_package("magrittr")
+use_package("purrr")
+use_package("tidyr")
+use_package("devtools")
+use_package("xts")
+use_package("lubridate")
+use_package("zoo")
 
-hello <- function() {
-  print("Hello, world!")
-}
+#load("data/countrycodes.rda")
+#load("data/data_transf.rda")
+
+#use_data(countrycodes,internal=TRUE,overwrite=T)
+
