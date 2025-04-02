@@ -8,7 +8,7 @@
 #' @param width_col_ifo width of ifo numerical columns
 #' @param abbr_ppi Full text header ppi
 #'
-#'
+#' @import magrittr
 #'
 #'
 #' @return seasonally adjusted time series as vector

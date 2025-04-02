@@ -11,6 +11,7 @@ get_table(
   width_col_q.p = 55,
   width_col_ifo = 80,
   width_plot = 200,
+  ppi_name = "PPI",
   abbr_ppi = "Producer Price Index weight",
   abbr_price = c("ΔProd: Change Rate Producer Prices", "test2"),
   abbr_output = c("test1", "test2"),
