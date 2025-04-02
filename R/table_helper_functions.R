@@ -249,7 +249,6 @@ get_cols<-function(sts_transf=c("c12m_nsa"),sts_series_transf="level_sa",ifo_tra
     ifo_labels<-ifo_vars
   }
 
-
   cols<-list(output_vars,price_vars,ifo_vars,output_labels,price_labels,ifo_labels)
   return(cols)
 }

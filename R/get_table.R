@@ -28,6 +28,7 @@
 #' gen_dataframe_level()
 #' }
 get_table<-function(data,width_col_sec=200,width_col_ppi=55,width_col_q.p=55,width_col_ifo=80,width_plot=200,
+                    ppi_name="PPI",
                     abbr_ppi="Producer Price Index weight",
                     abbr_price=c("ΔProd: Change Rate Producer Prices","test2"),
                     abbr_output=c("test1","test2"),
@@ -100,14 +101,15 @@ get_table<-function(data,width_col_sec=200,width_col_ppi=55,width_col_q.p=55,wid
     width=width_total,
     columns = c(output_cols,price_cols,ifo_cols,list(
       nace2 = colDef(show=F),
-      short_name= colDef(name="Sector",width=width_col_sec,
+      short_name= colDef(name="click for subsector",
+                         width=width_col_sec,
                          cell = function(value) {
                            full <- data_tables[[1]]%>%filter(short_name==value)%>%pull(full_name)
                            tags$abbr(title = full, value,style = "text-decoration: none;")
-                         },
+                         }
       ),
       full_name=colDef(show=F),
-      ppi.weight=colDef(name="PPI",
+      ppi.weight=colDef(name=ppi_name,
                         align="center",
                         format = colFormat(suffix = "%"),
                         header = function(colName) {
@@ -124,9 +126,10 @@ get_table<-function(data,width_col_sec=200,width_col_ppi=55,width_col_q.p=55,wid
 
     )),
     columnGroups = list(
+      colGroup(name="Sector",columns=c("short_name","ppi.weight")),
       colGroup(name = "Output",columns = c(cols[[1]],"output_series")),#headerStyle = list(textAlign = "left")
       colGroup(name = "Prices",columns =c(cols[[2]],"price_series")),
-      colGroup(name = "Limiting factors",columns =c(cols[[3]],"ifo_series"))
+      colGroup(name = "Limiting factors of production",columns =c(cols[[3]],"ifo_series"))
     ),
 
     #Main table specs
@@ -156,12 +159,12 @@ get_table<-function(data,width_col_sec=200,width_col_ppi=55,width_col_q.p=55,wid
           nace2 = colDef(show=F),
           short_name= colDef(name="Sector",width=width_col_sec,
                              cell = function(value) {
-                               full <- data_tables[[1]]%>%filter(short_name==value)%>%pull(full_name)
+                               full <- data_tables[[2]]%>%filter(short_name==value)%>%pull(full_name)
                                tags$abbr(title = full, value,style = "text-decoration: none;")
                              },
           ),
           full_name=colDef(show=F),
-          ppi.weight=colDef(name="PPI weight",
+          ppi.weight=colDef(name=ppi_name,
                             align="center",
                             format = colFormat(suffix = "%"),
                             width=width_col_ppi),
