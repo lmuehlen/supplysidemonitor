@@ -6,23 +6,29 @@
 \usage{
 get_table(
   data,
-  width_col_sec = 200,
-  width_col_ppi = 55,
-  width_col_q.p = 55,
-  width_col_ifo = 80,
-  width_plot = 200,
+  width_col_sec = 150,
+  width_col_ppi = 65,
+  width_col_q.p = 60,
+  width_col_ifo = 70,
+  width_plot = 150,
   ppi_name = "PPI",
   abbr_ppi = "Producer Price Index weight",
-  abbr_price = c("ΔProd: Change Rate Producer Prices", "test2"),
-  abbr_output = c("test1", "test2"),
-  abbr_ifo = c("test1", "test2"),
+  abbr_price =
+    c("ΔProd:\\n YoY Change Rate Producer Prices\\n with rolling averages\\n yₜ / (yₜ₋₁₁ + yₜ₋₁₂ + yₜ₋₁₃)",
+    "ΔImp:\\n YoY Change Rate Import Price\\n with rolling averages\\n yₜ / (yₜ₋₁₁ + yₜ₋₁₂ + yₜ₋₁₃)"),
+  abbr_output =
+    c("ΔProd:\\n YoY Change Rate Production Volume\\n with rolling averages\\n yₜ / (yₜ₋₁₁ + yₜ₋₁₂ + yₜ₋₁₃)",
+    "ΔImp:\\n YoY Change Rate Import Volume\\n with rolling averages\\n yₜ / (yₜ₋₁₁ + yₜ₋₁₂ + yₜ₋₁₃)"),
+  abbr_ifo =
+    c("Material:\\n Percentage of firms naming 'shortage of material'\\n as limiting factor for production",
+    "Orders:\\n Percentage of firms naming 'lack of orders'\\n as limiting factor for production"),
   expanded = FALSE,
   sorting = list(ppi.weight = "desc"),
   pagination = FALSE,
   filterable = TRUE,
   searchable = FALSE,
   page_size = 7,
-  backgroundColor = "#cdcadc",
+  backgroundColor = "#cdcadc4d",
   ...
 )
 }

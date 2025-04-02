@@ -7,11 +7,11 @@
 get_cols(
   sts_transf = c("c12m_nsa"),
   sts_series_transf = "level_sa",
-  ifo_transf = c("level_nsa"),
+  ifo_transf = "level_nsa",
   ifo_series_transf = "level_nsa",
-  output_labels = NULL,
-  price_labels = NULL,
-  ifo_labels = NULL
+  output_labels = c("ΔProd", "ΔImp"),
+  price_labels = c("ΔProd", "ΔImp"),
+  ifo_labels = c("Material", "Orders")
 )
 }
 \value{

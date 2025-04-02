@@ -227,7 +227,8 @@ get_lineplot<-function(x,y_vars=c("production","importvolume"),y_labels=NULL,wid
 #' \dontrun{
 #' gen_transformations()
 #' }
-get_cols<-function(sts_transf=c("c12m_nsa"),sts_series_transf="level_sa",ifo_transf=c("level_nsa"),ifo_series_transf="level_nsa",output_labels=NULL,price_labels=NULL,ifo_labels=NULL){
+get_cols<-function(sts_transf=c("c12m_nsa"),sts_series_transf="level_sa",ifo_transf="level_nsa",ifo_series_transf="level_nsa",
+                   output_labels=c("ΔProd","ΔImp"),price_labels=c("ΔProd","ΔImp"),ifo_labels=c("Material","Orders")){
   output_vars<-expand_grid(names=c("production","importTOT"), transformations= sts_transf) %>%
     mutate(var = paste(names, transformations, sep = "_")) %>%
     pull(var)

@@ -14,7 +14,7 @@
 #' \dontrun{
 #' gen_transformations()
 #' }
-get_datatable_level<- function(data,lev=2,sts_transf=c("c12m_nsa"),sts_series_transf="level_sa",ifo_transf=c("level_nsa"),ifo_series_transf="level_nsa",startdate="2015-01-01",enddate="2024-12-01",select_full=TRUE){
+get_datatable_level<- function(data,lev=2,sts_transf=c("c12m_nsa"),sts_series_transf="level_sa",ifo_transf=c("level_nsa"),ifo_series_transf="level_nsa",startdate="2015-01-01",enddate="2024-12-01",select_full=FALSE){
 
   #dataseries sts
 

@@ -13,7 +13,7 @@ get_datatable_level(
   ifo_series_transf = "level_nsa",
   startdate = "2015-01-01",
   enddate = "2024-12-01",
-  select_full = TRUE
+  select_full = FALSE
 )
 }
 \arguments{
