@@ -18,7 +18,8 @@
 #' }
 get_q.impfull_destatis<-function(){
 
-  data_import_2d<-map_df(2008:2024,function(x){
+  current_year<-format(Sys.Date(), "%Y")%>%as.numeric()
+  data_import_2d<-map_df(2008:current_year,function(x){
     gen_cube("51000BM221", database = "genesis",startyear=x,endyear=x,contents="GEWE")%>%
       mutate(nace2=sub("GP19-(.*)","\\1",GP19B2),
              level=2,
@@ -41,7 +42,7 @@ get_q.impfull_destatis<-function(){
       select(nace2,countrycode,level,date,importvolume)
   })
 
-  data_import_4d2<-map_df(2015:2024,function(x){
+  data_import_4d2<-map_df(2015:current_year,function(x){
     gen_cube("51000BM241", database = "genesis",startyear=x,endyear=x,contents="GEWE")%>%
       mutate(nace2=sub("GP19-(.*)","\\1",GP19B4),
              level=4,
