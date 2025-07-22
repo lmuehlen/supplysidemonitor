@@ -119,39 +119,29 @@ get_lineplot<-function(x,y_vars=c("production","importvolume"),y_labels=NULL,wid
       }
     "),
                  formatter = htmlwidgets::JS("
-    function(params) {
-      // If no data points, return empty tooltip
-      if (params.length === 0) return '';
+function (params) {
+  if (params.length === 0) return '';
 
-      // Extract the numeric date from the first series.
-      // e.g. [date_num, value, ...]
-      var rawValue = params[0].value[0];
-      var year = Math.floor(rawValue);
-      var fraction = rawValue - year;
+  var raw   = params[0].value[0],
+      year  = Math.floor(raw),
+      month = Math.round((raw - year) * 13),
+      dateLabel = ['Jan','Feb','Mar','Apr','May','Jun',
+                   'Jul','Aug','Sep','Oct','Nov','Dec'][month-1] +
+                  ' ' + year;
 
-      // Convert fraction to a month index: 1..12
-      var monthIndex = Math.round(fraction * 13);
-      var monthNames = [
-        'Jan','Feb','Mar','Apr','May','Jun',
-        'Jul','Aug','Sep','Oct','Nov','Dec'
-      ];
+  var html = '<div style=\"font-family:Open Sans;font-size:12px\">' +
+             '<strong>' + dateLabel + '</strong>';
 
-      // monthIndex goes from 1..12, but array is 0..11
-      var dateLabel = monthNames[monthIndex - 1] + ' ' + year;
-
-      // Build tooltip text:
-      //  - First line: Date: ...
-      //  - Then each variable: Production: X, Imports: Y, etc.
-      var tooltipText = 'Date: ' + dateLabel;
-      for (var i = 0; i < params.length; i++) {
-        var seriesName = params[i].seriesName; // e_line(name = ...)
-        var yValue     = params[i].value[1];   // The second array entry is the y-value
-        tooltipText += '<br/>' + seriesName + ': ' + yValue;
-      }
-
-      return tooltipText;
-    }
-  ")
+  for (var i = 0; i < params.length; i++) {
+    var colour = params[i].color;                // hex code
+    html += '<br/><span style=\"color:' + colour + '\">' +
+            params[i].seriesName + ':</span> ' +
+            params[i].value[1];
+  }
+  html += '</div>';
+  return html;
+}
+")
   )%>%
 
     ##### non changing#####
