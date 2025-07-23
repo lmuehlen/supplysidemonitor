@@ -143,10 +143,12 @@ get_lineplot<-function(x,y_vars=c("production","importvolume"),y_labels=NULL,wid
       //  - First line: Date: ...
       //  - Then each variable: Production: X, Imports: Y, etc.
       var tooltipText = 'Date: ' + dateLabel;
+      var colors = ['#ee6174', '#51275f'];
       for (var i = 0; i < params.length; i++) {
         var seriesName = params[i].seriesName; // e_line(name = ...)
         var yValue     = params[i].value[1];   // The second array entry is the y-value
-        tooltipText += '<br/>' + seriesName + ': ' + yValue;
+        var dotColor = colors[i] || '#36a9e1'; // Use default color if more than 2 series
+        tooltipText += '<br/><span style=\"color:' + dotColor + ';\">●</span> ' + seriesName + ': ' + yValue;
       }
 
       return tooltipText;
